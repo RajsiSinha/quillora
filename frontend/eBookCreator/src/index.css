@@ -10,10 +10,32 @@
 
 @layer base {
   html {
-    font-family: var --font-display;
+    font-family: var (--font-display);
   }
 
   body {
     background-color: #fcfbfc ;
   }
+}
+
+/* Icon button size & spacing */
+.w-md-editor-toolbar li > button {
+  height: 40px !important;
+  font-size: 24px !important;
+  color: #4A5568 !important;
+  padding: 10px !important;
+}
+
+/* Hover effect */
+.w-md-editor-toolbar button:hover {
+  color: #9852E4 !important;
+  background-color: #E9D4FF !important;
+  border-radius: 6px;
+}
+
+/* Active/focused icon style */
+.w-md-editor-toolbar button:focus {
+  outline: none;
+  color: #007A99 !important;
+  background-color: #d0f4ff !important;
 }
