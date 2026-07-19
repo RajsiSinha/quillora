@@ -16,19 +16,51 @@ const generateOutline = async (req, res) => {
 
     }
 
-    const prompt = ``;
+    const prompt = `You are an expert book outline generator. Create a comprehensive book outline based on the following requirements:
+
+Topic: "${topic}"
+${description ? `Description: ${description}` : ""}
+Writing Style: ${style}
+Number of Chapters: ${numChapters || 5}
+
+Requirements:
+1. Generate exactly ${numChapters || 5} chapters.
+2. Each chapter title should be clear, engaging, and follow a logical progression.
+3. Each chapter description should be 2–3 sentences explaining what the chapter covers.
+4. Ensure chapters build upon each other coherently.
+5. Match the "${style}" writing style in your titles and descriptions.
+
+Output Format:
+Return ONLY a valid JSON array with no additional text, markdown, or formatting.
+Each object must have exactly two keys:
+"title" and "description".
+
+Example structure:
+[
+  {
+    "title": "Chapter 1: Introduction to the Topic",
+    "description": "A comprehensive overview introducing the main concepts. Sets the foundation for understanding the subject matter."
+  },
+  {
+    "title": "Chapter 2: Core Principles",
+    "description": "Explores the fundamental principles and theories. Provides detailed examples and real-world applications."
+  }
+]
+
+Generate the outline now:`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash-lite",
+      model: "gemini-3.5-flash",
       contents: prompt,
     });
 
+    
     const text = response.text;
 
     // find and extract the JSON array from the response text
 
     const starIndex = text.indexOf("[");
-    const endIndex = text.lastIndexof("]");
+    const endIndex = text.lastIndexOf("]");
 
     if (starIndex === -1 || endIndex === -1) {
       console.error("Could not find JSON array in AI response:", text );
@@ -37,7 +69,7 @@ const generateOutline = async (req, res) => {
               .json({ message: "Failed to parse AI response, no JSON array found."});
     }
 
-    const jsonString = text.subString = text.substring(starIndex, endIndex + 1);
+    const jsonString = text.substring(starIndex, endIndex + 1);
 
     // Validate if the response is valid JSON
     try {
@@ -74,10 +106,32 @@ const generateChapterContent = async (req, res) => {
         .json({ message: "Please provide a chapter title" });
     }
 
-    const prompt = ``;
+    const prompt = `You are an expert writer specializing in ${style} content. Write a complete chapter for a book with the following specifications:
+
+Chapter Title: "${chapterTitle}"
+${chapterDescription ? `Chapter Description: ${chapterDescription}` : ""}
+Writing Style: ${style}
+Target Length: Comprehensive and detailed (aim for 1500-2500 words)
+
+Requirements:
+1. Write in a ${style.toLowerCase()} tone throughout the chapter
+2. Structure the content with clear sections and smooth transitions
+3. Include relevant examples, explanations, or anecdotes as appropriate for the style
+4. Ensure the content flows logically from introduction to conclusion
+5. Make the content engaging and valuable to readers
+${chapterDescription ? `6. Cover all points mentioned in the chapter description` : ""}
+
+Format Guidelines:
+- Start with a compelling opening paragraph
+- Use clear paragraph breaks for readability
+- Include subheadings if appropriate for the content length
+- End with a strong conclusion or transition to the next chapter
+- Write in plain text without markdown formatting
+
+Begin writing the chapter content now:`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash-lite",
+      model: "gemini-3.5-flash",
       contents: prompt,
     });
 
@@ -91,7 +145,7 @@ const generateChapterContent = async (req, res) => {
     }
 };
 
-GPUShaderModule.exports = {
+   module.exports = {
   generateOutline,
   generateChapterContent,
 };  

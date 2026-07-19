@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const {
     generateOutline,
-    generateChapterCount,
+    generateChapterContent,
 } = require("../controllers/aiController");
 const { protect } = require("../middlewares/authMiddleware");
 

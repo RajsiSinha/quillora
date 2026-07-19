@@ -33,7 +33,7 @@ const createBook = async (req, res) => {
 // @access  Private
 const getBooks = async (req, res) => {
     try {
-        const books = (await Book.find({ userId: req.user._id })).toSorted({ createdAt: -1 });
+        const books = await Book.find({ userId: req.user._id }).sort({ createdAt: -1 });
         res.status(200).json(books);
 
   } catch (error) {
@@ -82,7 +82,7 @@ const updateBook = async (req, res) => {
             return res.status(401).json ({ message: "Not authorized to update this book" });
         }
 
-        const updatedBook = await Book.fondByIdAndUpdate( req.params.id, req.body, {
+        const updatedBook = await Book.findByIdAndUpdate( req.params.id, req.body, {
             new: true,
         });
 

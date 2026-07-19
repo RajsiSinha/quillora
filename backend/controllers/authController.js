@@ -81,10 +81,11 @@ exports.loginUser = async (req, res) => {
 // @access  Private
 exports.getProfile = async (req, res) => {
     try {
-      const user = await User.finfById(req.user.id);
+      const user = await User.findById(req.user.id);
       res.json({
         _id: user._id,
         name: user.name,
+        email: user.email,
         avatar: user.avatar,
         isPro: user.isPro,
       });

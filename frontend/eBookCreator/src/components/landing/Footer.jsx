@@ -1,5 +1,6 @@
 import { BookOpen } from "lucide-react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { Heart } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -19,14 +20,15 @@ const Footer = () => {
               </div>
 
               <span className="text-xl font-semibold tracking-tight">
-                eBook Creator
+                Quillora
               </span>
             </a>
 
             <p className="text-gray-400 leading-relaxed max-w-sm">
               Create, design, and publish stunning ebooks with the power of AI.
             </p>
-          </div>
+            
+          
 
           {/* Social Links */}
 <div className="flex items-center space-x-3 pt-2">
@@ -130,16 +132,17 @@ const Footer = () => {
   </ul>
 </div>
 </div>
+</div>
 
 {/* Bottom Bar */}
 <div className="border-t border-white/10 py-8">
   <div className="flex flex-col md:flex-row justify-between items-center space-y-4">
     <p className="text-gray-400 text-sm">
-      {new Date().getFullYear()} eBook Creator. All rights reserved.
+      © {new Date().getFullYear()} Quillora. All rights reserved.
     </p>
 
-    <p className="text-gray-500 text-sm">
-      Made with <span className="text-violet-400">❤</span> for creators
+    <p className="text-gray-500 text-sm flex items-center gap-1">
+      Made with <Heart className="w-4 h-4 fill-violet-400 text-violet-400" /> for creators
     </p>
   </div>
 </div>

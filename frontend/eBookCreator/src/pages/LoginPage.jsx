@@ -66,7 +66,7 @@ const LoginPage = () => {
         </h1>
 
         <p className="text-slate-600 mt-2">
-          Sign in to continue to your eBook dashboard.
+          Sign in to continue to your Quillora dashboard.
         </p>
       </div>
 

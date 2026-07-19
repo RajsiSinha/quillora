@@ -8,7 +8,8 @@ import {
 
 import Button from "../ui/Button";
 import InputField from "../ui/InputField";
-import SimpleMDEEditor from "./SimpleMDEEditor";
+import SimpleMDEditor from "./SimpleMDEditor";
+
 
 const ChapterEditorTab = ({
   book = {
@@ -232,7 +233,7 @@ const formatMarkdown = (content) => {
 </div>
   ): (
   <div className="h-full">
-  <SimpleMDEEditor
+  <SimpleMDEditor
     value={currentChapter.content || ""}
     onChange={(value) =>
       onChapterChange({

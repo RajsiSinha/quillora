@@ -24,7 +24,7 @@ const Hero = () => {
           <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 leading-tight tracking-tight">
           Create Stunning 
           <span className="block mt-2 bg-gradient-to-r from-violet-600 via-purple-600 to-violet-600 bg-clip-text text-transparent">
-            Ebook in Minutes
+            Ebooks in Minutes
           </span>
           </h1>
 
@@ -76,7 +76,7 @@ const Hero = () => {
               <div className="relative bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100">
                 <img
                 src={HERO_IMG}
-                alt="AI Ebook Creator Dashboard"
+                alt="Quillora Dashboard"
                 className="w-full h-auto"
                 />
 

@@ -35,7 +35,7 @@ const Navbar = () => {
         <BookOpen className="w-5 h-5 text-white" />
         </div>
         <span className="text-xl font-semibold text-gray-900 tracking-tight">
-          AI eBook Creator 
+          Quillora
           </span>
           </a>
 
@@ -43,11 +43,11 @@ const Navbar = () => {
           <nav className="hidden lg:flex items-center space-x-1">
             {navLinks.map((link) => (
               <a
-                key={Link.name}
-                href={Link.href}
+                key={link.name}
+                href={link.href}
                 className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-violet-600 rounded-lg hover:bg-violet-50/50 transition-all duration-200"
           >
-            {Link.name}
+            {link.name}
           </a>             
             ))}
           </nav>

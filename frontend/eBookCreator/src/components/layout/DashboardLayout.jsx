@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import ProfileDropdown from "./ProfileDropdown";
 
+
 const DashboardLayout = ({ children }) => {
   const { user, logout } = useAuth();
 
@@ -38,7 +39,7 @@ const DashboardLayout = ({ children }) => {
             </div>
 
             <span className="text-black font-bold text-xl">
-              AI eBook Creator
+              Quillora
             </span>
           </Link>
         </div>
