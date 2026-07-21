@@ -87,11 +87,16 @@ Generate the outline now:`;
   } catch (error) {
     console.error("Error generating outline:", error);
 
-    res
-      .status(500)
-      .json({ message: "Server error during AI outline generation" });
-  }
-};
+    const status = error.status || 500;
+
+     res.status(status).json({
+    message:
+      status === 503
+        ? "Gemini AI is temporarily busy. Please try again after a few minutes."
+        : "Server error during AI outline generation",
+  });
+}
+}
 
 // @desc    Generate content for a chapter
 // @route   POST /api/ai/generate-chapter-content
