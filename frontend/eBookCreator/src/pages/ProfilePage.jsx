@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 
 import { User, Mail } from "lucide-react";
 
-import DashboardLayout from "../components/Layout/DashboardLayout";
+import DashboardLayout from "../components/layout/DashboardLayout";
 import InputField from "../components/ui/InputField";
 import Button from "../components/ui/Button";
 
